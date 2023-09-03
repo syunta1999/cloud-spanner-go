@@ -1,0 +1,6 @@
+# 認証ファイル
+/api/cloudrun-go-handson-396810-d6478fd2d46f.json
+api/cmd/tmp/main
+api/cmd/tmp/*.log
+.env
+build-errors.log

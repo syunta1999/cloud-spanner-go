@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    container_name: api
+    environment:
+      STAGE: ${STAGE}
+      # DB_CONNECTION_NAME: "root:${MYSQL_ROOT_PASSWORD}@tcp(db:3306)/${MYSQL_DATABASE}?parseTime=true"
+      # API_PORT: ${API_PORT}
+      # SEND_GRID_API_KEY: ${SEND_GRID_API_KEY}
+      # SEND_GRID_SENDER_EMAIL: ${SEND_GRID_SENDER_EMAIL}
+      # STRIPE_API_KEY: ${STRIPE_API_KEY}
+    volumes:
+      - ./api:/api
+    restart: always
+    tty: true
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    # depends_onで指定されたサービスを先に起動する
+    # depends_on:
+      # db:
+        # condition: service_healthy

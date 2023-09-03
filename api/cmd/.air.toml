@@ -1,0 +1,49 @@
+# 作業ディレクトリを指定
+root = "/api"
+# バイナリの場所を指定
+tmp_dir = "./cmd/tmp"
+
+[build]
+  args_bin = []
+  # バイナリの作成場所を指定
+  bin = "./tmp/main"
+  # バイナリの実行
+  cmd = "go build -o ./tmp/main ."
+  delay = 1000
+  #バイナリをカスタマイズし、アプリの実行時に環境変数をセットアップできます。
+  full_bin = ""
+  # 追跡対象にしたいディレクトリを追加。
+  include_dir = []
+  # 追跡対象にしたいファイルの拡張子を指定
+  include_file = ["go","yaml","sql"]
+  # これらのファイル拡張子に注意してください。
+  include_ext = ["go","yaml","sql"]
+  # ディレクトリを追跡から除外
+  exclude_dir = ["tpl", "tmpl", "html"]
+  # fileを追跡から除外
+  exclude_file = ["log"]
+  # 特定の正規表現を除外します
+  exclude_regex = []
+  # システムに影響のないファイル変更は追跡されない => 改行を消しただけなど
+  exclude_unchanged = true
+  # シンポリックリンクを追跡する
+  follow_symlink = true
+  kill_delay = "0s"
+  send_interrupt = false
+  stop_on_error = true
+
+[color]
+  app = ""
+  build = "yellow"
+  main = "magenta"
+  runner = "green"
+  watcher = "cyan"
+
+[log]
+  time = true
+
+[misc]
+  clean_on_exit = false
+
+[screen]
+  clear_on_rebuild = false
